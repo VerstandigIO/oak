@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "oak"
+version = "0.1.0"
+description = "A collection of Python objects and utilities"
+authors = ["Nathan Lucas <bnlucas@outlook.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pytest-cov = "^4.0.0"
+flake8 = "^5.0.4"
+black = { version = "*", allow-prereleases = true }
+pre-commit = "^2.20.0"
+tox = "^3.24.5"
+
+[build-system]
+requires = ["poetry-core>=1.2.2"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.semantic_release]
+version_variable = [
+    "oak/__init__.py:__version__",
+    "pyproject.toml:version"
+]
+branch = "main"
+upload_to_pypi = false
+upload_to_release = true
+build_command = "pip install poetry && poetry build"

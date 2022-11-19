@@ -1,0 +1,28 @@
+name: Main
+
+concurrency:
+  group: ci-${{ github.ref }}
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  version:
+    name: Version bump
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v3
+        with:
+          python-version: 3.10
+
+      - name: Semantic Release
+        run: |
+          pip install python-semantic-release
+          git config user.name verstandig-bot
+          git config user.email github@verstandig.io
+          semantic-release publish
