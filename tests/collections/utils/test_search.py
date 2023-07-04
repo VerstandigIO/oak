@@ -10,7 +10,7 @@ _T_co = TypeVar("_T_co", covariant=True)
 
 
 class NonIterable:
-    __slot__ = "__items"
+    __slots__ = "_items"
 
     def __init__(self, items):
         self._items = items

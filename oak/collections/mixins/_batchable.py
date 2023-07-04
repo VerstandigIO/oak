@@ -1,14 +1,8 @@
-import sys
 from abc import ABC
 from typing import TypeVar
 
-if sys.version_info.minor >= 9:
-    from collections.abc import Generator, Sequence
-else:
-    from typing import Generator, Sequence
-
+from ..abc import Generator, Sequence
 from ..utils import batch
-
 
 _T_co = TypeVar("_T_co", covariant=True)
 

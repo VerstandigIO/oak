@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 from abc import ABC
-from collections.abc import Sequence
 from typing import TypeVar
+
+from . import Sequence
 
 
 _T_co = TypeVar("_T_co", covariant=True)

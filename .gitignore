@@ -170,3 +170,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 static/
+
+# Ignore OS files
+.DS_Store
+TAGS

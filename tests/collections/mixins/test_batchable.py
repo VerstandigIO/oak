@@ -1,6 +1,6 @@
-from collections.abc import Sequence
 from typing import TypeVar
 
+from oak.collections.abc import Sequence
 from oak.collections.mixins import Batchable
 
 _T_co = TypeVar("_T_co", covariant=True)

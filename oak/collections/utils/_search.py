@@ -1,11 +1,7 @@
-import sys
 from itertools import compress
 from typing import TypeVar
 
-if sys.version_info.minor >= 9:
-    from collections.abc import Callable, Iterable
-else:
-    from typing import Callable, Iterable
+from ..abc import Callable, Iterable
 
 
 _T_co = TypeVar("_T_co", covariant=True)

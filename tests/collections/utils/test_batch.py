@@ -1,15 +1,14 @@
-from collections.abc import Iterator, Sequence
 from typing import TypeVar
 
 from pytest import raises
 
+from oak.collections.abc import Iterator, Sequence
 from oak.collections.utils import batch
-
 
 _T_co = TypeVar("_T_co", covariant=True)
 
 
-class IterableTest(Iterator):
+class NonSequence(Iterator):
     def __init__(self, items):
         self._items = items
 
@@ -28,9 +27,9 @@ class SequenceTest(Sequence):
         return self._items.__len__()
 
 
-def test_batch_iterator():
+def test_batch_non_sequence():
     with raises(TypeError):
-        items = IterableTest([1, 2, 3, 4, 5])
+        items = NonSequence([1, 2, 3, 4, 5])
         list(batch(items, 2))
 
 

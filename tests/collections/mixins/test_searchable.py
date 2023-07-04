@@ -1,8 +1,7 @@
-from collections.abc import Iterable
-from typing import TypeVar, Iterator
+from typing import TypeVar
 
+from oak.collections.abc import Iterable, Iterator
 from oak.collections.mixins import Searchable
-
 
 _T_co = TypeVar("_T_co", covariant=True)
 
